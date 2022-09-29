@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import ChatContainer from "./ChatContainer"
+import UserLogin from "./UserLogin"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+	const [loggedIn, setLoggedIn] = useState(false)
+	const [user, setUser] = useState({})
+
+	if (loggedIn) {
+		return <ChatContainer user={user} />
+	} else {
+		return <UserLogin setLoggedIn={setLoggedIn} setUser={setUser} />
+	}
 }
 
-export default App;
+export default App

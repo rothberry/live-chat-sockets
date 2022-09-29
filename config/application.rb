@@ -23,6 +23,9 @@ module LiveChatSockets
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # ! WEBSOCKETS?
+    config.action_cable.mount_path = "/cable"
+    config.action_cable.url = "ws://localhost:28080"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
